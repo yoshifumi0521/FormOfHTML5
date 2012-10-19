@@ -2,11 +2,43 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>HTML5のForm属性</title>
+    <title>HTML5のForm属性。変更や追加された機能が中心</title>
 </head>
 <body>
 	
-	<h1>HTML5のForm属性</h1>
+	<h1>HTML5のForm属性。変更や追加された機能が中心</h1>
+	
+	<!-- type="date"で、日付を設定できる -->
+	<p> type="date"</p>
+	<form>
+		<input type="date" >
+		<input type="submit" value="送信" />
+	</form>
+	
+	
+	<!-- placeholder。「どんな文字列を入力すればよいか」のヒントとなるテキストを表示するもの-->
+	<p> placeholder </p>
+	<form>
+		<input type="text" placeholder="お名前" name="name">
+		<input type="submit" value="送信" />
+	</form>
+	
+	
+	<!-- checkboxのindeterminateプロパティー。これはonとoff以外の曖昧なものを追加する。-->
+	<p> checkboxのindeterminateプロパティー。これはスクリプトで追加する。 </p>
+	<form onsubmit="checkboxClick()">
+		<input type="checkbox"id="checkbox"> indeterminate
+		<input type="submit" value="送信" />
+	</form>
+	
+	
+	<!-- fileタイプのmultiple属性-->
+	<p> fileタイプのmultiple属性 </p>
+	<form>
+		<input type="file"  multiple/>
+		<input type="submit" value="送信" />
+	</form>
+	
 	
 	
 	
@@ -16,8 +48,24 @@
 	
 	
 	<script>
+	
+		//checkboxのindeterminateプロパティーを追加する。
+		var checkbox = document.getElementById("checkbox");
+		checkbox.indeterminate = true;
 		
+		//checkboxがクリックされたらするメソッドを定義する。
+		function checkboxClick(){
+			
+			//ここで、onとoffとあいまいの3種類のどれが押されたかの判定
+			if(checkbox.indeterminate){
+				console.log("あいまい");
+			}else if(checkbox.checked){
+				console.log("チェックされた");
+			}else{
+				console.log("チェックされなかった");
+			}
 		
+		}
 		
 		
 		

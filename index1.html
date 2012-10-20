@@ -40,7 +40,24 @@
 	</form>
 	
 	
+	<!-- fileタイプのaccespt属性。これでファイルの指定例えば、jpg,pngなどがの指定が可能。結構便利-->
+	<p>fileタイプのaccespt属性</p>
+	<form>
+		<input type="file" type="image/*"/>
+		<input type="submit" value="送信" />
+	</form>
 	
+	
+	<!-- formactionで送信先を別々にすることができる。 -->
+	<p>formaction　</p>
+	<form method="POST">
+		お名前:<input name="name" required>
+		年齢:<input type="number" min="20" max="150" name="age" required>
+		
+		<input type="submit" formaction="/addPerson" value="追加">
+		<input type="submit" formaction="/updatePerson" value="更新">
+		<input type="submit" formaction="/deletePerson" formnovalidate value="削除">
+	</form>
 	
 	
 	
